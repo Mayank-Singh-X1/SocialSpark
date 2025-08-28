@@ -1,0 +1,80 @@
+[
+  {
+    "id": "tmpl_001",
+    "title": "New Product Launch",
+    "description": "A template for announcing a new product with excitement and a clear call to action.",
+    "image": "https://picsum.photos/600/400?q=4",
+    "data-ai-hint": "product launch",
+    "form_data": {
+      "platform": "instagram",
+      "postType": "announcement",
+      "tone": "persuasive",
+      "keywords": "New product launch for [Product Name], key features are [Feature 1] and [Feature 2]. Available now!"
+    }
+  },
+  {
+    "id": "tmpl_002",
+    "title": "Weekly Q&A",
+    "description": "Engage your audience with a weekly question and answer session.",
+    "image": "https://picsum.photos/600/400?q=5",
+    "data-ai-hint": "question mark",
+    "form_data": {
+      "platform": "x",
+      "postType": "question",
+      "tone": "friendly",
+      "keywords": "Weekly Q&A, ask me anything about [Your Topic]"
+    }
+  },
+  {
+    "id": "tmpl_003",
+    "title": "Inspirational Quote",
+    "description": "Share a motivational quote to inspire your followers.",
+    "image": "https://picsum.photos/600/400?q=6",
+    "data-ai-hint": "inspirational landscape",
+    "form_data": {
+      "platform": "linkedin",
+      "postType": "quote",
+      "tone": "inspirational",
+      "keywords": "Motivation, success, professional growth"
+    }
+  },
+  {
+    "id": "tmpl_004",
+    "title": "Meme Monday",
+    "description": "Start the week with a laugh using a relevant meme for your industry.",
+    "image": "https://picsum.photos/600/400?q=7",
+    "data-ai-hint": "funny animal",
+    "form_data": {
+      "platform": "facebook",
+      "postType": "meme",
+      "tone": "funny",
+      "keywords": "Relatable office humor, [Industry] meme"
+    }
+  },
+  {
+    "id": "tmpl_005",
+    "title": "Behind the Scenes Story",
+    "description": "Give your audience a peek behind the curtain with a short story.",
+    "image": "https://picsum.photos/600/400?q=8",
+    "data-ai-hint": "workshop tools",
+    "form_data": {
+      "platform": "instagram",
+      "postType": "story",
+      "tone": "friendly",
+      "keywords": "Behind the scenes look at how we [activity], a day in the life"
+    }
+  },
+  {
+    "id": "tmpl_006",
+    "title": "Limited Time Promo",
+    "description": "Drive urgency and sales with a limited-time promotion post.",
+    "image": "https://picsum.photos/600/400?q=9",
+    "data-ai-hint": "shopping sale",
+    "form_data": {
+      "platform": "tiktok",
+      "postType": "promo",
+      "tone": "persuasive",
+      "keywords": "Flash sale, 24-hour discount on [Product], limited time offer"
+    }
+  }
+]
