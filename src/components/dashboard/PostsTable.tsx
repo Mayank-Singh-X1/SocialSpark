@@ -1,14 +1,14 @@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { MoreHorizontal } from 'lucide-react';
+import { MoreHorizontal, Twitter, Instagram, Linkedin, Facebook, Rss } from 'lucide-react';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 
 type Post = {
   id: string;
   content: string;
   status: 'Draft' | 'Scheduled' | 'Published';
-  platform: string;
+  platform: 'Instagram' | 'X' | 'LinkedIn' | 'Facebook' | 'TikTok' | 'Pinterest' | string;
   scheduled_at: string;
   created_at: string;
 };
@@ -26,6 +26,14 @@ const statusColors = {
     Published: 'outline'
 } as const;
 
+const PlatformLogos = {
+    'Instagram': <Instagram className="h-5 w-5 text-pink-500" />,
+    'X': <Twitter className="h-5 w-5 text-sky-500" />,
+    'LinkedIn': <Linkedin className="h-5 w-5 text-blue-600" />,
+    'Facebook': <Facebook className="h-5 w-5 text-blue-800" />,
+    'TikTok': <Rss className="h-5 w-5" />, // Placeholder
+    'Pinterest': <Rss className="h-5 w-5" />, // Placeholder
+}
 
 export default function PostsTable({ status }: { status: 'Draft' | 'Scheduled' | 'Published' }) {
     const posts = mockPosts.filter(p => p.status === status);
@@ -49,7 +57,12 @@ export default function PostsTable({ status }: { status: 'Draft' | 'Scheduled' |
         <TableBody>
           {posts.map((post) => (
             <TableRow key={post.id}>
-              <TableCell>{post.platform}</TableCell>
+              <TableCell className="text-center">
+                 <div className="flex items-center gap-2">
+                    {PlatformLogos[post.platform as keyof typeof PlatformLogos] || <Rss className="h-5 w-5" />}
+                    <span className="font-medium">{post.platform}</span>
+                </div>
+              </TableCell>
               <TableCell className="max-w-xs truncate">{post.content}</TableCell>
               <TableCell>
                 <Badge variant={statusColors[post.status]}>{post.status}</Badge>
