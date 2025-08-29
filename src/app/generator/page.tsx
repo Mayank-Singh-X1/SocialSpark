@@ -1,9 +1,41 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import type { GenerateSocialPostOutput, GenerateSocialPostInput } from '@/ai/flows/generate-social-post';
 import GeneratorForm from '@/components/generator/GeneratorForm';
 import LivePreview from '@/components/generator/LivePreview';
+import { Skeleton } from '@/components/ui/skeleton';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
+
+function GeneratorFormSkeleton() {
+  return (
+    <Card>
+      <CardHeader>
+        <Skeleton className="h-6 w-1/2" />
+        <Skeleton className="h-4 w-3/4" />
+      </CardHeader>
+      <CardContent className="space-y-6">
+        <div className="space-y-2">
+          <Skeleton className="h-4 w-1/4" />
+          <Skeleton className="h-10 w-full" />
+        </div>
+        <div className="space-y-2">
+          <Skeleton className="h-4 w-1/4" />
+          <Skeleton className="h-10 w-full" />
+        </div>
+        <div className="space-y-2">
+          <Skeleton className="h-4 w-1/4" />
+          <Skeleton className="h-10 w-full" />
+        </div>
+        <div className="space-y-2">
+          <Skeleton className="h-4 w-1/4" />
+          <Skeleton className="h-20 w-full" />
+        </div>
+        <Skeleton className="h-11 w-full" />
+      </CardContent>
+    </Card>
+  )
+}
 
 export default function GeneratorPage() {
   const [results, setResults] = useState<GenerateSocialPostOutput>([]);
@@ -22,11 +54,13 @@ export default function GeneratorPage() {
         </div>
       <div className="grid lg:grid-cols-12 gap-8 items-start">
         <div className="lg:col-span-4">
-          <GeneratorForm 
-            setResults={setResults} 
-            setIsLoading={setIsLoading}
-            setFormValues={setFormValues}
-          />
+          <Suspense fallback={<GeneratorFormSkeleton />}>
+            <GeneratorForm 
+              setResults={setResults} 
+              setIsLoading={setIsLoading}
+              setFormValues={setFormValues}
+            />
+          </Suspense>
         </div>
         <div className="lg:col-span-8 lg:sticky top-24">
           <LivePreview results={results} isLoading={isLoading} formValues={formValues} setResults={setResults}/>
